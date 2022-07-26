@@ -110,6 +110,7 @@ public class UnmanagedPublisher<Message> {
         final String exchange = config.getExchange();
         final String dlx = config.getExchange() + "_SIDELINE";
         if (config.isDelayed()) {
+            ensureExchange(config.getExchange());
             ensureDelayedExchange(exchange);
         } else {
             ensureExchange(exchange);
